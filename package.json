@@ -15,7 +15,6 @@
     "start": "rollup -c -w",
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build",
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "precommit": "lint-staged && cross-env CI=true react-scripts test --env=jsdom"
   },
