@@ -15,7 +15,7 @@
     "start": "rollup -c -w",
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
-    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "commitmsg": "commitlint -E GIT_PARAMS",
     "precommit": "lint-staged && cross-env CI=true react-scripts test --env=jsdom"
   },
   "dependencies": {},
