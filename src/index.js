@@ -166,8 +166,8 @@ class SuperTimer extends Component {
   }
 
   render() {
-    const { time } = this.state;
-    const timer = SuperTimer.formatTime(time);
+    const { time, milliseconds } = this.state;
+    const timer = this.props.formatTimer(time, milliseconds);
 
     return <React.Fragment>{timer}</React.Fragment>;
   }
@@ -180,6 +180,7 @@ SuperTimer.propTypes = {
   interval: PropTypes.number,
   started: PropTypes.bool,
   paused: PropTypes.bool,
+  formatTimer: PropTypes.func,
   onTick: PropTypes.func,
   onStart: PropTypes.func,
   onPause: PropTypes.func,
@@ -194,6 +195,7 @@ SuperTimer.defaultProps = {
   interval: 1000,
   started: false,
   paused: false,
+  formatTimer: (time, ms) => SuperTimer.formatTime(time),
   onTick: time => {},
   onStart: time => {},
   onPause: time => {},
