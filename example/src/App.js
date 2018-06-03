@@ -2,7 +2,12 @@ import React, { Component } from "react";
 
 import SuperTimer from "react-super-timer";
 
+import moment from "moment";
+import momentDurationFormatSetup from "moment-duration-format";
+
 import "index.css";
+
+momentDurationFormatSetup(moment);
 
 export default class App extends Component {
   constructor(props) {
@@ -21,7 +26,7 @@ export default class App extends Component {
     });
   }
 
-  startTimer(isStarted) {
+  toggleStartTimer(isStarted) {
     this.setState({
       started: isStarted
     });
@@ -38,13 +43,17 @@ export default class App extends Component {
 
     return (
       <section className={"superTimer"}>
+        <h1>React Super Timer</h1>
         <span className={"timer"}>
           <SuperTimer
-            timeStart={10 * 1000}
+            timeStart={60 * 1000}
             started={started}
             paused={paused}
             countdown={countdown}
             interval={1000}
+            formatTimer={(time, ms) =>
+              moment.duration(ms, "milliseconds").format("h:mm:ss")
+            }
             onStart={time =>
               console.info(`Timer started: ${JSON.stringify(time)}`)
             }
@@ -65,18 +74,32 @@ export default class App extends Component {
             }
           />
         </span>
-        <div className={"actionBlock"}>
-          <button type="button" onClick={() => this.startTimer(!started)}>
+        <div className={"typeBlock"}>
+          <label>
+            <input
+              type="radio"
+              name="type"
+              defaultChecked={!countdown}
+              onClick={() => this.toggleCountdown(false)}
+            />{" "}
+            Count Up
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="type"
+              checked={countdown}
+              onClick={() => this.toggleCountdown(true)}
+            />{" "}
+            Count Down
+          </label>
+        </div>
+        <div className={"player"}>
+          <button type="button" onClick={() => this.toggleStartTimer(!started)}>
             {started ? "Stop" : "Start"}
           </button>
           <button type="button" onClick={() => this.toggleTimer(!paused)}>
             {paused ? "Resume" : "Pause"}
-          </button>
-          <button
-            type="button"
-            onClick={() => this.toggleCountdown(!countdown)}
-          >
-            {countdown ? "Count Up" : "Count Down"}
           </button>
         </div>
       </section>
