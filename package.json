@@ -2,12 +2,29 @@
   "name": "react-super-timer",
   "version": "1.0.0",
   "description": "React Super Timer is a fully controllable and customizable timer component for react",
-  "author": "yassinedoghri",
+  "homepage": "https://yassinedoghri.github.io/react-super-timer/",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/yassinedoghri/react-super-timer"
   },
+  "author": {
+    "name": "Yassine Doghri",
+    "email": "yassine@doghri.fr",
+    "url": "https://yassine.doghri.fr/"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "component",
+    "super-timer",
+    "timer",
+    "countdown",
+    "countup",
+    "stopwatch",
+    "counter",
+    "game-timer"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
