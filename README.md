@@ -21,6 +21,11 @@ import React, { Component } from 'react'
 
 import SuperTimer from 'react-super-timer'
 
+import moment from "moment";
+import momentDurationFormatSetup from "moment-duration-format";
+
+momentDurationFormatSetup(moment);
+
 class Example extends Component {
   render () {
     return (
@@ -31,6 +36,9 @@ class Example extends Component {
         paused={false}
         countdown={false} // use as stopwatch
         interval={1000} // tick every 1 second
+        formatTimer={(time, ms) =>
+          moment.duration(ms, "milliseconds").format("h:mm:ss")
+        }
         onStart={time =>
           console.info(`Timer started: ${JSON.stringify(time)}`)
         }
@@ -62,24 +70,28 @@ class Example extends Component {
 Renders a [React Fragment](https://reactjs.org/docs/fragments.html) to be fully customized.
 You can easily style the timer states thanks to the provided function callbacks.
 
-SuperTimer displays the time formatted as: `HH:MM:SS.SSS`
+By default, SuperTimer displays the time formatted as: `hh:mm:ss.SSS`.
+The format can be changed using the `formatTimer` property. [See usage example](#usage) above.
 
 ### Props
 
-| Name                 	| Type       	| Default                  	| Description                                                         	|
-|----------------------	|------------	|--------------------------	|---------------------------------------------------------------------	|
-| timeStart `required` 	| `number`   	| -                        	| The initial time on which the timer is set (in ms)                  	|
-| timeEnd              	| `number`   	| `0`                      	| The time on which the timer will complete (in ms)                   	|
-| countdown            	| `boolean`  	| `false`                  	| When `true`, sets the timer to countdown instead of counting up     	|
-| interval             	| `number`   	| `1000`                   	| The time between each ticks (in ms)                                 	|
-| started              	| `boolean`  	| `false`                  	| Starts the timer when set to `true`, stops it when set to `false`   	|
-| paused               	| `boolean`  	| `false`                  	| Pauses the timer when set to `true`, resumes it when set to `false` 	|
-| onStart              	| `function` 	| `(timer: Timer) => void` 	| Callback function called on timer start                             	|
-| onTick               	| `function` 	| `(timer: Timer) => void` 	| Callback function called on each timer tick                         	|
-| onPause              	| `function` 	| `(timer: Timer) => void` 	| Callback function called on timer pause                             	|
-| onResume             	| `function` 	| `(timer: Timer) => void` 	| Callback function called when timer resumes                         	|
-| onStop               	| `function` 	| `(timer: Timer) => void` 	| Callback function called on timer stop                              	|
-| onComplete           	| `function` 	| `(timer: Timer) => void` 	| Callback function called on timer complete                          	|
+| Name                 	| Type       	| Default                  	                    | Description                                                         	                                            |
+|----------------------	|------------	|---------------------------------------------- |------------------------------------------------------------------------------------------------------------------ |
+| timeStart `required` 	| `number`   	| -                        	                    | The initial time on which the timer is set (in ms)                  	                                            |
+| timeEnd              	| `number`   	| `0`                      	                    | The time on which the timer will complete (in ms)                   	                                            |
+| countdown            	| `boolean`  	| `false`                  	                    | When `true`, sets the timer to countdown instead of counting up     	                                            |
+| interval             	| `number`   	| `1000`                   	                    | The time between each ticks (in ms)                                 	                                            |
+| started              	| `boolean`  	| `false`                  	                    | Starts the timer when set to `true`, stops it when set to `false`   	                                            |
+| paused               	| `boolean`  	| `false`                  	                    | Pauses the timer when set to `true`, resumes it when set to `false` 	                                            |
+| formatTimer           | `function` 	| `(timer: Timer, ms: number) => 'hh:mm:ss.SSS'`| Function to format the timer before it renders. You can use [moment-duration] as shown above or write your own    |
+| onStart              	| `function` 	| `(timer: Timer) => void` 	                    | Callback function called on timer start                             	                                            |
+| onTick               	| `function` 	| `(timer: Timer) => void` 	                    | Callback function called on each timer tick                         	                                            |
+| onPause              	| `function` 	| `(timer: Timer) => void` 	                    | Callback function called on timer pause                             	                                            |
+| onResume             	| `function` 	| `(timer: Timer) => void` 	                    | Callback function called when timer resumes                         	                                            |
+| onStop               	| `function` 	| `(timer: Timer) => void` 	                    | Callback function called on timer stop                              	                                            |
+| onComplete           	| `function` 	| `(timer: Timer) => void` 	                    | Callback function called on timer complete                          	                                            |
+
+[moment-duration]: https://github.com/jsmreese/moment-duration-format
 
 ### Types
 
