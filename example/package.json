@@ -5,11 +5,13 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-super-timer": "link:..",
-    "react-scripts": "^1.1.1"
+    "react-scripts": "^1.1.1",
+    "react-super-timer": "link:.."
   },
   "scripts": {
     "start": "react-scripts start",
