@@ -18,17 +18,20 @@ export default class App extends Component {
       started: false,
       countdown: false
     };
-  }
 
-  toggleTimer(isPaused) {
-    this.setState({
-      paused: isPaused
-    });
+    this.toggleStartTimer = this.toggleStartTimer.bind(this);
+    this.toggleTimer = this.toggleTimer.bind(this);
   }
 
   toggleStartTimer(isStarted) {
     this.setState({
       started: isStarted
+    });
+  }
+
+  toggleTimer(isPaused) {
+    this.setState({
+      paused: isPaused
     });
   }
 
@@ -38,11 +41,26 @@ export default class App extends Component {
     });
   }
 
+  renderPlayerBtn(toggleFunc, stateProp, label) {
+    return (
+      <button type="button" onClick={() => toggleFunc(!stateProp)}>
+        {stateProp ? label.true : label.false}
+      </button>
+    );
+  }
+
   render() {
     const { started, paused, countdown } = this.state;
 
     return (
       <section className={"timerMachine"}>
+        <a href="https://github.com/yassinedoghri/react-timer-machine">
+          <img
+            className={"githubFork"}
+            src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+            alt="Fork me on GitHub"
+          />
+        </a>
         <h1>React Timer Machine</h1>
         <span className={"timer"}>
           <TimerMachine
@@ -95,12 +113,14 @@ export default class App extends Component {
           </label>
         </div>
         <div className={"player"}>
-          <button type="button" onClick={() => this.toggleStartTimer(!started)}>
-            {started ? "Stop" : "Start"}
-          </button>
-          <button type="button" onClick={() => this.toggleTimer(!paused)}>
-            {paused ? "Resume" : "Pause"}
-          </button>
+          {this.renderPlayerBtn(this.toggleStartTimer, started, {
+            true: "Stop",
+            false: "Start"
+          })}
+          {this.renderPlayerBtn(this.toggleTimer, paused, {
+            true: "Resume",
+            false: "Pause"
+          })}
         </div>
       </section>
     );

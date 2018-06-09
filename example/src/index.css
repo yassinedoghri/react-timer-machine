@@ -41,3 +41,10 @@ body {
 .player button {
     margin: 0 1em;
 }
+
+.githubFork {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+}
