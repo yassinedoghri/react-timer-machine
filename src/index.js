@@ -1,11 +1,11 @@
 /**
- * @class SuperTimer
+ * @class TimerMachine
  */
 
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 
-class SuperTimer extends Component {
+class TimerMachine extends Component {
   static msToTime(ms) {
     const milliseconds = ms % 1000;
     ms = (ms - milliseconds) / 1000;
@@ -39,7 +39,7 @@ class SuperTimer extends Component {
     super(props);
 
     this.state = {
-      time: SuperTimer.msToTime(props.timeStart),
+      time: TimerMachine.msToTime(props.timeStart),
       milliseconds: props.timeStart
     };
     this.timer = 0;
@@ -128,7 +128,7 @@ class SuperTimer extends Component {
   resetTimer() {
     const { timeStart } = this.props;
     this.setState({
-      time: SuperTimer.msToTime(timeStart),
+      time: TimerMachine.msToTime(timeStart),
       milliseconds: timeStart
     });
   }
@@ -150,7 +150,7 @@ class SuperTimer extends Component {
 
     const remaining = milliseconds + this.every;
     this.setState({
-      time: SuperTimer.msToTime(remaining),
+      time: TimerMachine.msToTime(remaining),
       milliseconds: remaining
     });
     onTick(time);
@@ -173,7 +173,7 @@ class SuperTimer extends Component {
   }
 }
 
-SuperTimer.propTypes = {
+TimerMachine.propTypes = {
   timeStart: PropTypes.number.isRequired,
   timeEnd: PropTypes.number,
   countdown: PropTypes.bool,
@@ -189,13 +189,13 @@ SuperTimer.propTypes = {
   onComplete: PropTypes.func
 };
 
-SuperTimer.defaultProps = {
+TimerMachine.defaultProps = {
   timeEnd: 0,
   countdown: false,
   interval: 1000,
   started: false,
   paused: false,
-  formatTimer: (time, ms) => SuperTimer.formatTime(time),
+  formatTimer: (time, ms) => TimerMachine.formatTime(time),
   onTick: time => {},
   onStart: time => {},
   onPause: time => {},
@@ -204,4 +204,4 @@ SuperTimer.defaultProps = {
   onComplete: time => {}
 };
 
-export default SuperTimer;
+export default TimerMachine;

@@ -1,17 +1,17 @@
-# react-super-timer
+# react-timer-machine
 
-> React Super Timer is a fully controllable and customizable timer component for react
+> React Timer Machine is a fully controllable and customizable timer component for react
 
-[![NPM](https://img.shields.io/npm/v/react-super-timer.svg)](https://www.npmjs.com/package/react-super-timer) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Build Status](https://travis-ci.org/yassinedoghri/react-super-timer.svg?branch=master)](https://travis-ci.org/yassinedoghri/react-super-timer "Master Build") [![Build Status](https://travis-ci.org/yassinedoghri/react-super-timer.svg?branch=development)](https://travis-ci.org/yassinedoghri/react-super-timer "Development Build") [![Maintainability](https://api.codeclimate.com/v1/badges/c56b244c71ff213031ff/maintainability)](https://codeclimate.com/github/yassinedoghri/react-super-timer/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/c56b244c71ff213031ff/test_coverage)](https://codeclimate.com/github/yassinedoghri/react-super-timer/test_coverage)
+[![NPM](https://img.shields.io/npm/v/react-timer-machine.svg)](https://www.npmjs.com/package/react-timer-machine) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Build Status](https://travis-ci.org/yassinedoghri/react-timer-machine.svg?branch=master)](https://travis-ci.org/yassinedoghri/react-timer-machine "Master Build") [![Build Status](https://travis-ci.org/yassinedoghri/react-timer-machine.svg?branch=development)](https://travis-ci.org/yassinedoghri/react-timer-machine "Development Build") [![Maintainability](https://api.codeclimate.com/v1/badges/c56b244c71ff213031ff/maintainability)](https://codeclimate.com/github/yassinedoghri/react-timer-machine/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/c56b244c71ff213031ff/test_coverage)](https://codeclimate.com/github/yassinedoghri/react-timer-machine/test_coverage)
 
 ## Install
 
 ```bash
-npm install --save react-super-timer
+npm install --save react-timer-machine
 ```
 or
 ```
-yarn add react-super-timer
+yarn add react-timer-machine
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ yarn add react-super-timer
 ```jsx
 import React, { Component } from 'react'
 
-import SuperTimer from 'react-super-timer'
+import TimerMachine from 'react-timer-machine'
 
 import moment from "moment";
 import momentDurationFormatSetup from "moment-duration-format";
@@ -29,7 +29,7 @@ momentDurationFormatSetup(moment);
 class Example extends Component {
   render () {
     return (
-      <SuperTimer
+      <TimerMachine
         timeStart={10 * 1000} // start at 10 seconds
         timeEnd={20 * 1000} // end at 20 seconds
         started={true}
@@ -65,12 +65,12 @@ class Example extends Component {
 
 ## User guide
 
-### SuperTimer
+### TimerMachine
 
 Renders a [React Fragment](https://reactjs.org/docs/fragments.html) to be fully customized.
 You can easily style the timer states thanks to the provided function callbacks.
 
-By default, SuperTimer displays the time formatted as: `hh:mm:ss.SSS`.
+By default, TimerMachine displays the time formatted as: `hh:mm:ss.SSS`.
 The format can be changed using the `formatTimer` property. [See usage example](#usage) above.
 
 ### Props

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import SuperTimer from "react-super-timer";
+import TimerMachine from "react-timer-machine";
 
 import moment from "moment";
 import momentDurationFormatSetup from "moment-duration-format";
@@ -42,10 +42,10 @@ export default class App extends Component {
     const { started, paused, countdown } = this.state;
 
     return (
-      <section className={"superTimer"}>
-        <h1>React Super Timer</h1>
+      <section className={"timerMachine"}>
+        <h1>React Timer Machine</h1>
         <span className={"timer"}>
-          <SuperTimer
+          <TimerMachine
             timeStart={60 * 1000}
             started={started}
             paused={paused}

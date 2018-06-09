@@ -5588,7 +5588,7 @@ react-scripts@^1.1.1:
   optionalDependencies:
     fsevents "^1.1.3"
 
-"react-super-timer@link:..":
+"react-timer-machine@link:..":
   version "0.0.0"
   uid ""
 

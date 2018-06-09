@@ -1,12 +1,12 @@
 {
-  "name": "react-super-timer",
+  "name": "react-timer-machine",
   "version": "1.0.0",
-  "description": "React Super Timer is a fully controllable and customizable timer component for react",
-  "homepage": "https://yassinedoghri.github.io/react-super-timer/",
+  "description": "React Timer Machine is a fully controllable and customizable timer component for react",
+  "homepage": "https://yassinedoghri.github.io/react-timer-machine/",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yassinedoghri/react-super-timer"
+    "url": "https://github.com/yassinedoghri/react-timer-machine"
   },
   "author": {
     "name": "Yassine Doghri",
@@ -18,7 +18,10 @@
     "react-component",
     "component",
     "super-timer",
+    "timer-machine",
+    "time-machine",
     "timer",
+    "time",
     "countdown",
     "countup",
     "stopwatch",

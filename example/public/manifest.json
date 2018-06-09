@@ -1,6 +1,6 @@
 {
-  "short_name": "react-super-timer",
-  "name": "react-super-timer",
+  "short_name": "react-timer-machine",
+  "name": "react-timer-machine",
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",

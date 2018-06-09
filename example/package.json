@@ -1,6 +1,6 @@
 {
-  "name": "react-super-timer-example",
-  "homepage": "https://yassinedoghri.github.io/react-super-timer",
+  "name": "react-timer-machine-example",
+  "homepage": "https://yassinedoghri.github.io/react-timer-machine",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
@@ -11,7 +11,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "^1.1.1",
-    "react-super-timer": "link:.."
+    "react-timer-machine": "link:.."
   },
   "scripts": {
     "start": "react-scripts start",

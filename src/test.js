@@ -1,7 +1,7 @@
-import SuperTimer from "./";
+import TimerMachine from "./";
 
-describe("SuperTimer", () => {
+describe("TimerMachine", () => {
   it("is truthy", () => {
-    expect(SuperTimer).toBeTruthy();
+    expect(TimerMachine).toBeTruthy();
   });
 });
