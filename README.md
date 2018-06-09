@@ -2,7 +2,7 @@
 
 > React Timer Machine is a fully controllable and customizable timer component for react
 
-[![NPM](https://img.shields.io/npm/v/react-timer-machine.svg)](https://www.npmjs.com/package/react-timer-machine) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Build Status](https://travis-ci.org/yassinedoghri/react-timer-machine.svg?branch=master)](https://travis-ci.org/yassinedoghri/react-timer-machine "Master Build") [![Build Status](https://travis-ci.org/yassinedoghri/react-timer-machine.svg?branch=development)](https://travis-ci.org/yassinedoghri/react-timer-machine "Development Build") [![Maintainability](https://api.codeclimate.com/v1/badges/c56b244c71ff213031ff/maintainability)](https://codeclimate.com/github/yassinedoghri/react-timer-machine/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/c56b244c71ff213031ff/test_coverage)](https://codeclimate.com/github/yassinedoghri/react-timer-machine/test_coverage)
+[![NPM](https://img.shields.io/npm/v/react-timer-machine.svg)](https://www.npmjs.com/package/react-timer-machine) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Build Status](https://travis-ci.org/yassinedoghri/react-timer-machine.svg?branch=master)](https://travis-ci.org/yassinedoghri/react-timer-machine "Master Build") [![Build Status](https://travis-ci.org/yassinedoghri/react-timer-machine.svg?branch=development)](https://travis-ci.org/yassinedoghri/react-timer-machine "Development Build") [![Maintainability](https://api.codeclimate.com/v1/badges/67abb76788a89f4805fc/maintainability)](https://codeclimate.com/github/yassinedoghri/react-timer-machine/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/67abb76788a89f4805fc/test_coverage)](https://codeclimate.com/github/yassinedoghri/react-timer-machine/test_coverage)
 
 ## Install
 
@@ -99,6 +99,22 @@ The format can be changed using the `formatTimer` property. [See usage example](
 |----------------|-----------------------------------|
 | Timer `object` | ` { h: 1, m: 30, s: 30, ms: 0 } ` |
 
-## License
+## Versioning
 
-MIT © [Yassine Doghri](https://github.com/yassinedoghri)
+react-timer-machine is maintained under [the Semantic Versioning guidelines](http://semver.org/).
+
+## Contributing
+
+Love react-timer-machine and would like to help? Check out the [contribution guidelines for this project](./CONTRIBUTING.md), everything should be there!
+
+## Contributors
+
+**Yassine Doghri** _(creator)_
+
+* [https://yassine.doghri.fr](https://yassine.doghri.fr)
+* [https://twitter.com/yassinedoghri](https://twitter.com/yassinedoghri)
+* [https://github.com/yassinedoghri](https://github.com/yassinedoghri)
+
+## Copyright and licence
+
+Code and documentation copyright 2018, [Yassine Doghri](https://github.com/yassinedoghri). Code released under the MIT License.
