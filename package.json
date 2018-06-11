@@ -39,7 +39,8 @@
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
     "commitmsg": "commitlint -E GIT_PARAMS",
-    "precommit": "lint-staged && cross-env CI=true react-scripts test --env=jsdom"
+    "precommit": "lint-staged && cross-env CI=true react-scripts test --env=jsdom",
+    "release": "standard-version"
   },
   "dependencies": {},
   "peerDependencies": {
@@ -82,7 +83,8 @@
     "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-plugin-peer-deps-external": "^2.0.0",
     "rollup-plugin-postcss": "^1.1.0",
-    "rollup-plugin-url": "^1.3.0"
+    "rollup-plugin-url": "^1.3.0",
+    "standard-version": "^4.4.0"
   },
   "files": [
     "dist"
