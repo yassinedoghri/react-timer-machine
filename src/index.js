@@ -146,22 +146,23 @@ class TimerMachine extends Component {
   tick() {
     // Remove interval, set state so a re-render happens.
     const { onComplete, onTick, timeEnd, countdown } = this.props;
-    const { time, milliseconds } = this.state;
+    const { milliseconds } = this.state;
 
-    const remaining = milliseconds + this.every;
+    const msRemaining = milliseconds + this.every;
+    const timeRemaining = TimerMachine.msToTime(msRemaining);
     this.setState({
-      time: TimerMachine.msToTime(remaining),
-      milliseconds: remaining
+      time: timeRemaining,
+      milliseconds: msRemaining
     });
-    onTick(time);
+    onTick(timeRemaining);
 
     // Check if timer completed.
     if (
-      (countdown && remaining <= timeEnd) ||
-      (!countdown && (timeEnd && remaining >= timeEnd))
+      (countdown && msRemaining <= timeEnd) ||
+      (!countdown && (timeEnd && msRemaining >= timeEnd))
     ) {
       this.stopTimer();
-      onComplete(time);
+      onComplete(timeRemaining);
     }
   }
 
