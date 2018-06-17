@@ -58,8 +58,7 @@ class TimerMachine extends Component {
   }
 
   componentDidUpdate() {
-    const { timeStart, countdown, started, paused, interval } = this.props;
-    const { milliseconds } = this.state;
+    const { countdown, started, paused, interval } = this.props;
 
     this.every = countdown ? -interval : interval;
 
@@ -75,9 +74,7 @@ class TimerMachine extends Component {
         this.resumeTimer();
       }
     } else {
-      if (timeStart !== milliseconds) {
-        this.stopTimer();
-      }
+      this.stopTimer();
     }
   }
 
