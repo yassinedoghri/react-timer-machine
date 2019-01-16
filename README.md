@@ -111,7 +111,7 @@ Love react-timer-machine and would like to help? Check out the [contribution gui
 
 **Yassine Doghri** _(creator)_
 
-* [https://yassine.doghri.fr](https://yassine.doghri.fr)
+* [https://yassinedoghri.com](https://yassinedoghri.com)
 * [https://twitter.com/yassinedoghri](https://twitter.com/yassinedoghri)
 * [https://github.com/yassinedoghri](https://github.com/yassinedoghri)
 

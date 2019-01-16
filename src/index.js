@@ -8,11 +8,11 @@ import React, { Component } from "react";
 class TimerMachine extends Component {
   static msToTime(ms) {
     const milliseconds = ms % 1000;
-    ms = (ms - milliseconds) / 1000;
-    const seconds = ms % 60;
-    ms = (ms - seconds) / 60;
-    const minutes = ms % 60;
-    const hours = (ms - minutes) / 60;
+    const ms1 = (ms - milliseconds) / 1000;
+    const seconds = ms1 % 60;
+    const ms2 = (ms1 - seconds) / 60;
+    const minutes = ms2 % 60;
+    const hours = (ms2 - minutes) / 60;
 
     return {
       h: hours,
@@ -23,16 +23,8 @@ class TimerMachine extends Component {
   }
 
   static formatTime(time) {
-    const pad = (n, z = 2) => ("00" + n).slice(-z);
-    return (
-      pad(time.h) +
-      ":" +
-      pad(time.m) +
-      ":" +
-      pad(time.s) +
-      "." +
-      pad(time.ms, 3)
-    );
+    const pad = (n, z = 2) => `00${n}`.slice(-z);
+    return `${pad(time.h)}:${pad(time.m)}:${pad(time.s)}.${pad(time.ms, 3)}`;
   }
 
   constructor(props) {
@@ -55,6 +47,10 @@ class TimerMachine extends Component {
     this.resetTimer = this.resetTimer.bind(this);
     this.timeoutCallback = this.timeoutCallback.bind(this);
     this.tick = this.tick.bind(this);
+  }
+
+  componentDidMount() {
+    this.forceUpdate();
   }
 
   componentDidUpdate() {
@@ -193,13 +189,13 @@ TimerMachine.defaultProps = {
   interval: 1000,
   started: false,
   paused: false,
-  formatTimer: (time, ms) => TimerMachine.formatTime(time),
-  onTick: time => {},
-  onStart: time => {},
-  onPause: time => {},
-  onResume: time => {},
-  onStop: time => {},
-  onComplete: time => {}
+  formatTimer: time => TimerMachine.formatTime(time),
+  onTick: () => {},
+  onStart: () => {},
+  onPause: () => {},
+  onResume: () => {},
+  onStop: () => {},
+  onComplete: () => {}
 };
 
 export default TimerMachine;

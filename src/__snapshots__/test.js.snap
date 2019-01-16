@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TimerMachine renders correctly 1`] = `
-<React.Fragment>
+<Fragment>
   00:00:10.000
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`TimerMachine renders custom timer format 1`] = `
-<React.Fragment>
+<Fragment>
   1 min 10 seconds
-</React.Fragment>
+</Fragment>
 `;
