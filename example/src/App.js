@@ -10,6 +10,14 @@ import "index.css";
 momentDurationFormatSetup(moment);
 
 export default class App extends Component {
+  static renderPlayerBtn(toggleFunc, stateProp, label) {
+    return (
+      <button type="button" onClick={() => toggleFunc(!stateProp)}>
+        {stateProp ? label.true : label.false}
+      </button>
+    );
+  }
+
   constructor(props) {
     super(props);
 
@@ -21,6 +29,7 @@ export default class App extends Component {
 
     this.toggleStartTimer = this.toggleStartTimer.bind(this);
     this.toggleTimer = this.toggleTimer.bind(this);
+    this.toggleCountdown = this.toggleCountdown.bind(this);
   }
 
   toggleStartTimer(isStarted) {
@@ -41,28 +50,20 @@ export default class App extends Component {
     });
   }
 
-  renderPlayerBtn(toggleFunc, stateProp, label) {
-    return (
-      <button type="button" onClick={() => toggleFunc(!stateProp)}>
-        {stateProp ? label.true : label.false}
-      </button>
-    );
-  }
-
   render() {
     const { started, paused, countdown } = this.state;
 
     return (
-      <section className={"timerMachine"}>
+      <section className="timerMachine">
         <a href="https://github.com/yassinedoghri/react-timer-machine">
           <img
-            className={"githubFork"}
+            className="githubFork"
             src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
             alt="Fork me on GitHub"
           />
         </a>
         <h1>React Timer Machine</h1>
-        <span className={"timer"}>
+        <span className="timer">
           <TimerMachine
             timeStart={60 * 1000}
             started={started}
@@ -92,9 +93,10 @@ export default class App extends Component {
             }
           />
         </span>
-        <div className={"typeBlock"}>
-          <label>
+        <div className="typeBlock">
+          <label htmlFor="countup">
             <input
+              id="countup"
               type="radio"
               name="type"
               defaultChecked={!countdown}
@@ -102,22 +104,23 @@ export default class App extends Component {
             />{" "}
             Count Up
           </label>
-          <label>
+          <label htmlFor="countdown">
             <input
+              id="countdown"
               type="radio"
               name="type"
-              checked={countdown}
+              defaultChecked={countdown}
               onClick={() => this.toggleCountdown(true)}
             />{" "}
             Count Down
           </label>
         </div>
-        <div className={"player"}>
-          {this.renderPlayerBtn(this.toggleStartTimer, started, {
+        <div className="player">
+          {App.renderPlayerBtn(this.toggleStartTimer, started, {
             true: "Stop",
             false: "Start"
           })}
-          {this.renderPlayerBtn(this.toggleTimer, paused, {
+          {App.renderPlayerBtn(this.toggleTimer, paused, {
             true: "Resume",
             false: "Pause"
           })}
