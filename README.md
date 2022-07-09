@@ -1,25 +1,31 @@
-# react-timer-machine
+<h1 align="center">⌛ react-timer-machine</h1>
 
-> React Timer Machine is a fully controllable and customizable timer component for react
+<div align="center">
 
-[![NPM](https://img.shields.io/npm/v/react-timer-machine.svg)](https://www.npmjs.com/package/react-timer-machine) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Build Status](https://travis-ci.org/yassinedoghri/react-timer-machine.svg?branch=master)](https://travis-ci.org/yassinedoghri/react-timer-machine "Master Build") [![Build Status](https://travis-ci.org/yassinedoghri/react-timer-machine.svg?branch=development)](https://travis-ci.org/yassinedoghri/react-timer-machine "Development Build") [![Maintainability](https://api.codeclimate.com/v1/badges/67abb76788a89f4805fc/maintainability)](https://codeclimate.com/github/yassinedoghri/react-timer-machine/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/67abb76788a89f4805fc/test_coverage)](https://codeclimate.com/github/yassinedoghri/react-timer-machine/test_coverage)
+**React Timer Machine is a fully controllable and customizable timer component for react**
+
+[![npm-badge]][npm]&nbsp;[![deploy-badge]][deploy]&nbsp;[![test-suite-badge]][test-suite]&nbsp;[![maintainability-badge]][maintainability]&nbsp;[![test-coverage-badge]][test-coverage]&nbsp;[![license-badge]][license]&nbsp;[![stars-badge]][stars]
+
+</div>
 
 ## Install
 
 ```bash
 npm install --save react-timer-machine
 ```
+
 or
-```
+
+```bash
 yarn add react-timer-machine
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import TimerMachine from 'react-timer-machine'
+import TimerMachine from "react-timer-machine";
 
 import moment from "moment";
 import momentDurationFormatSetup from "moment-duration-format";
@@ -27,7 +33,7 @@ import momentDurationFormatSetup from "moment-duration-format";
 momentDurationFormatSetup(moment);
 
 class Example extends Component {
-  render () {
+  render() {
     return (
       <TimerMachine
         timeStart={10 * 1000} // start at 10 seconds
@@ -39,26 +45,24 @@ class Example extends Component {
         formatTimer={(time, ms) =>
           moment.duration(ms, "milliseconds").format("h:mm:ss")
         }
-        onStart={time =>
+        onStart={(time) =>
           console.info(`Timer started: ${JSON.stringify(time)}`)
         }
-        onStop={time =>
+        onStop={(time) =>
           console.info(`Timer stopped: ${JSON.stringify(time)}`)
         }
-        onTick={time =>
-          console.info(`Timer ticked: ${JSON.stringify(time)}`)
-        }
-        onPause={time =>
+        onTick={(time) => console.info(`Timer ticked: ${JSON.stringify(time)}`)}
+        onPause={(time) =>
           console.info(`Timer paused: ${JSON.stringify(time)}`)
         }
-        onResume={time =>
+        onResume={(time) =>
           console.info(`Timer resumed: ${JSON.stringify(time)}`)
         }
-        onComplete={time =>
+        onComplete={(time) =>
           console.info(`Timer completed: ${JSON.stringify(time)}`)
         }
-    />
-    )
+      />
+    );
   }
 }
 ```
@@ -75,29 +79,29 @@ The format can be changed using the `formatTimer` property. [See usage example](
 
 ### Props
 
-| Name                 	| Type       	| Default                  	                    | Description                                                         	                                            |
-|----------------------	|------------	|---------------------------------------------- |------------------------------------------------------------------------------------------------------------------ |
-| timeStart `required` 	| `number`   	| -                        	                    | The initial time on which the timer is set (in ms)                  	                                            |
-| timeEnd              	| `number`   	| `0`                      	                    | The time on which the timer will complete (in ms)                   	                                            |
-| countdown            	| `boolean`  	| `false`                  	                    | When `true`, sets the timer to countdown instead of counting up     	                                            |
-| interval             	| `number`   	| `1000`                   	                    | The time between each ticks (in ms)                                 	                                            |
-| started              	| `boolean`  	| `false`                  	                    | Starts the timer when set to `true`, stops it when set to `false`   	                                            |
-| paused               	| `boolean`  	| `false`                  	                    | Pauses the timer when set to `true`, resumes it when set to `false` 	                                            |
-| formatTimer           | `function` 	| `(timer: Timer, ms: number) => 'hh:mm:ss.SSS'`| Function to format the timer before it renders. You can use [moment-duration] as shown above or write your own    |
-| onStart              	| `function` 	| `(timer: Timer) => void` 	                    | Callback function called on timer start                             	                                            |
-| onTick               	| `function` 	| `(timer: Timer) => void` 	                    | Callback function called on each timer tick                         	                                            |
-| onPause              	| `function` 	| `(timer: Timer) => void` 	                    | Callback function called on timer pause                             	                                            |
-| onResume             	| `function` 	| `(timer: Timer) => void` 	                    | Callback function called when timer resumes                         	                                            |
-| onStop               	| `function` 	| `(timer: Timer) => void` 	                    | Callback function called on timer stop                              	                                            |
-| onComplete           	| `function` 	| `(timer: Timer) => void` 	                    | Callback function called on timer complete                          	                                            |
+| Name                 | Type       | Default                                        | Description                                                                                                    |
+| -------------------- | ---------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| timeStart `required` | `number`   | -                                              | The initial time on which the timer is set (in ms)                                                             |
+| timeEnd              | `number`   | `0`                                            | The time on which the timer will complete (in ms)                                                              |
+| countdown            | `boolean`  | `false`                                        | When `true`, sets the timer to countdown instead of counting up                                                |
+| interval             | `number`   | `1000`                                         | The time between each ticks (in ms)                                                                            |
+| started              | `boolean`  | `false`                                        | Starts the timer when set to `true`, stops it when set to `false`                                              |
+| paused               | `boolean`  | `false`                                        | Pauses the timer when set to `true`, resumes it when set to `false`                                            |
+| formatTimer          | `function` | `(timer: Timer, ms: number) => 'hh:mm:ss.SSS'` | Function to format the timer before it renders. You can use [moment-duration] as shown above or write your own |
+| onStart              | `function` | `(timer: Timer) => void`                       | Callback function called on timer start                                                                        |
+| onTick               | `function` | `(timer: Timer) => void`                       | Callback function called on each timer tick                                                                    |
+| onPause              | `function` | `(timer: Timer) => void`                       | Callback function called on timer pause                                                                        |
+| onResume             | `function` | `(timer: Timer) => void`                       | Callback function called when timer resumes                                                                    |
+| onStop               | `function` | `(timer: Timer) => void`                       | Callback function called on timer stop                                                                         |
+| onComplete           | `function` | `(timer: Timer) => void`                       | Callback function called on timer complete                                                                     |
 
 [moment-duration]: https://github.com/jsmreese/moment-duration-format
 
 ### Types
 
-| Name           | Example values                    |
-|----------------|-----------------------------------|
-| Timer `object` | ` { h: 1, m: 30, s: 30, ms: 0 } ` |
+| Name           | Example values                  |
+| -------------- | ------------------------------- |
+| Timer `object` | `{ h: 1, m: 30, s: 30, ms: 0 }` |
 
 ## Versioning
 
@@ -111,10 +115,25 @@ Love react-timer-machine and would like to help? Check out the [contribution gui
 
 **Yassine Doghri** _(creator)_
 
-* [https://yassinedoghri.com](https://yassinedoghri.com)
-* [https://twitter.com/yassinedoghri](https://twitter.com/yassinedoghri)
-* [https://github.com/yassinedoghri](https://github.com/yassinedoghri)
+- [https://yassinedoghri.com](https://yassinedoghri.com)
+- [https://twitter.com/yassinedoghri](https://twitter.com/yassinedoghri)
+- [https://github.com/yassinedoghri](https://github.com/yassinedoghri)
 
 ## Copyright and licence
 
 Code and documentation copyright 2018, [Yassine Doghri](https://github.com/yassinedoghri). Code released under the MIT License.
+
+[npm]: https://www.npmjs.com/package/react-timer-machine
+[npm-badge]: https://img.shields.io/npm/v/react-timer-machine.svg
+[deploy]: https://github.com/yassinedoghri/react-timer-machine/actions/workflows/deploy.yml
+[deploy-badge]: https://img.shields.io/github/workflow/status/yassinedoghri/react-timer-machine/react-timer-machine-deploy-example/main?label=deploy
+[test-suite]: https://github.com/yassinedoghri/react-timer-machine/actions/workflows/test.yml
+[test-suite-badge]: https://img.shields.io/github/workflow/status/yassinedoghri/react-timer-machine/react-timer-machine-test-suite/main?label=test%20suite
+[maintainability]: https://codeclimate.com/github/yassinedoghri/react-timer-machine/maintainability
+[maintainability-badge]: https://api.codeclimate.com/v1/badges/67abb76788a89f4805fc/maintainability
+[test-coverage]: https://codeclimate.com/github/yassinedoghri/react-timer-machine/test_coverage
+[test-coverage-badge]: https://api.codeclimate.com/v1/badges/67abb76788a89f4805fc/test_coverage
+[license]: https://opensource.org/licenses/MIT
+[license-badge]: https://img.shields.io/badge/License-MIT-blue.svg
+[stars]: https://github.com/yassinedoghri/react-timer-machine/stargazers
+[stars-badge]: https://img.shields.io/github/stars/yassinedoghri/react-timer-machine?style=social

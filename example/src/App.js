@@ -62,7 +62,12 @@ export default class App extends Component {
             alt="Fork me on GitHub"
           />
         </a>
-        <h1>React Timer Machine</h1>
+        <h1>
+          <span role="img" aria-label="Hourglass">
+            ⌛
+          </span>{" "}
+          React Timer Machine
+        </h1>
         <span className="timer">
           <TimerMachine
             timeStart={60 * 1000}

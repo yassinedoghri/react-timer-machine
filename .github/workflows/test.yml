@@ -1,0 +1,44 @@
+name: react-timer-machine-test-suite
+
+on: [push, pull_request]
+
+jobs:
+  run:
+    if: github.ref != 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Setup node ⚙️
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies 📥
+        run: |
+          yarn install --frozen-lockfile
+          yarn test
+
+  run-with-coverage:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Setup node ⚙️
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies 📥
+        run: yarn install --frozen-lockfile
+
+      - name: Test & publish code coverage 🛠️
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: 690e11fe3552c43d69de7706400ddd569c440e9245d2b37191e0a3499ce00ff1
+        with:
+          coverageCommand: yarn test --coverage
+          debug: true
