@@ -50,7 +50,18 @@ class TimerMachine extends Component {
   }
 
   componentDidMount() {
-    this.forceUpdate();
+    const { started, paused, countdown, interval } = this.props;
+    this.every = countdown ? -interval : interval;
+
+    if (started) {
+      if (this.internalState === 0) {
+        this.resetTimer();
+        this.startTimer();
+      }
+      if (paused) {
+        this.pauseTimer();
+      }
+    }
   }
 
   componentDidUpdate() {
